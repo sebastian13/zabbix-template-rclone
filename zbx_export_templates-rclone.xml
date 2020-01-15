@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>4.4</version>
+    <date>2020-01-15T11:54:11Z</date>
+    <groups>
+        <group>
+            <name>Templates</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>Template Rclone</template>
+            <name>Template Rclone</name>
+            <groups>
+                <group>
+                    <name>Templates</name>
+                </group>
+            </groups>
+            <discovery_rules>
+                <discovery_rule>
+                    <name>Rclone Copy</name>
+                    <type>TRAP</type>
+                    <key>rclone.copy.discovery</key>
+                    <delay>0</delay>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>rclone copy: Checks</name>
+                            <type>TRAP</type>
+                            <key>rclone.copy.checks.[{#SOURCE}.{#DEST}]</key>
+                            <delay>0</delay>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>rclone copy: {#SOURCE} to {#DEST}</name>
+                                </application_prototype>
+                            </application_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>rclone copy: Errors</name>
+                            <type>TRAP</type>
+                            <key>rclone.copy.errors.[{#SOURCE}.{#DEST}]</key>
+                            <delay>0</delay>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>rclone copy: {#SOURCE} to {#DEST}</name>
+                                </application_prototype>
+                            </application_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>rclone copy: Elapsed Time</name>
+                            <type>TRAP</type>
+                            <key>rclone.copy.time.[{#SOURCE}.{#DEST}]</key>
+                            <delay>0</delay>
+                            <units>s</units>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>rclone copy: {#SOURCE} to {#DEST}</name>
+                                </application_prototype>
+                            </application_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>rclone copy: Bytes Transferred</name>
+                            <type>TRAP</type>
+                            <key>rclone.copy.transbytes.[{#SOURCE}.{#DEST}]</key>
+                            <delay>0</delay>
+                            <units>B</units>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>rclone copy: {#SOURCE} to {#DEST}</name>
+                                </application_prototype>
+                            </application_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>rclone copy: Files Transferred</name>
+                            <type>TRAP</type>
+                            <key>rclone.copy.transfiles.[{#SOURCE}.{#DEST}]</key>
+                            <delay>0</delay>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>rclone copy: {#SOURCE} to {#DEST}</name>
+                                </application_prototype>
+                            </application_prototypes>
+                        </item_prototype>
+                    </item_prototypes>
+                </discovery_rule>
+                <discovery_rule>
+                    <name>Rclone Sync</name>
+                    <type>TRAP</type>
+                    <key>rclone.sync.discovery</key>
+                    <delay>0</delay>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>rclone sync: Checks</name>
+                            <type>TRAP</type>
+                            <key>rclone.sync.checks.[{#SOURCE}.{#DEST}]</key>
+                            <delay>0</delay>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>rclone sync: {#SOURCE} to {#DEST}</name>
+                                </application_prototype>
+                            </application_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>rclone sync: Errors</name>
+                            <type>TRAP</type>
+                            <key>rclone.sync.errors.[{#SOURCE}.{#DEST}]</key>
+                            <delay>0</delay>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>rclone sync: {#SOURCE} to {#DEST}</name>
+                                </application_prototype>
+                            </application_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>rclone sync: Elapsed Time</name>
+                            <type>TRAP</type>
+                            <key>rclone.sync.time.[{#SOURCE}.{#DEST}]</key>
+                            <delay>0</delay>
+                            <units>s</units>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>rclone sync: {#SOURCE} to {#DEST}</name>
+                                </application_prototype>
+                            </application_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>rclone sync: Bytes Transferred</name>
+                            <type>TRAP</type>
+                            <key>rclone.sync.transbytes.[{#SOURCE}.{#DEST}]</key>
+                            <delay>0</delay>
+                            <units>B</units>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>rclone sync: {#SOURCE} to {#DEST}</name>
+                                </application_prototype>
+                            </application_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>rclone sync: Files Transferred</name>
+                            <type>TRAP</type>
+                            <key>rclone.sync.transfiles.[{#SOURCE}.{#DEST}]</key>
+                            <delay>0</delay>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>rclone sync: {#SOURCE} to {#DEST}</name>
+                                </application_prototype>
+                            </application_prototypes>
+                        </item_prototype>
+                    </item_prototypes>
+                </discovery_rule>
+            </discovery_rules>
+        </template>
+    </templates>
+</zabbix_export>

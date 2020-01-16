@@ -51,7 +51,8 @@ cecho $yellow "Running Zabbix Extraction:"
 TIME=$(stat -c '%015Y' $LOGFILE)
 arr=()
 
-RLOG_TB=$(tail -n6 ${LOGFILE} | grep '^Transferred: .* Bytes' | awk '{print $2}')
+RLOG_TB=$(tail -n6 ${LOGFILE} | grep '^Transferred:.*Bytes' | awk '{print $2}' \
+		| python3 -c 'import sys; import humanfriendly; print (humanfriendly.parse_size(sys.stdin.read(), binary=True))' )
 echo "Transferred Bytes: $RLOG_TB"
 arr+=("- rclone.sync.transbytes.[$1.$2] $TIME $RLOG_TB")
 

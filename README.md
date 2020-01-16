@@ -5,6 +5,7 @@ This script logs [rclone sync](https://rclone.org/commands/rclone_sync/) tasks t
 ## Requirements
 * Rclone
 * Zabbix-Sender
+* python3: humanfriendly
 
 ## How to Use
 

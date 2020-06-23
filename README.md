@@ -14,8 +14,8 @@ This script logs [rclone sync](https://rclone.org/commands/rclone_sync/) tasks t
   ```bash
   mkdir -p /etc/zabbix/scripts
   cd /etc/zabbix/scripts
-  curl -O https://raw.githubusercontent.com/sebastian13/zabbix-templates/master/rclone/scripts/rclone-sync.sh
-  curl -O https://raw.githubusercontent.com/sebastian13/zabbix-templates/master/rclone/scripts/rclone-discovery.pl
+  curl -O https://raw.githubusercontent.com/sebastian13/zabbix-template-rclone/master/scripts/rclone-sync.sh
+  curl -O https://raw.githubusercontent.com/sebastian13/zabbix-template-rclone/master/scripts/rclone-discovery.pl
   chmod +x rclone-sync.sh rclone-discovery.pl
   ``` 
 

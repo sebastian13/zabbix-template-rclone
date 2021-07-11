@@ -102,26 +102,26 @@ cecho $yellow "Running Logfile Parsing:"
 TIME=$(stat -c '%015Y' $LOGFILE)
 arr=()
 
-RLOG_TB=$(cat $LOGFILE | grep '^Transferred:.*Bytes' | awk '{print $2}' \
+RLOG_TB=$(cat $LOGFILE | grep '^Transferred:.*Bytes' | tail -1 | awk '{print $2}' \
 		| python3 -c 'import sys; import humanfriendly; print (humanfriendly.parse_size(sys.stdin.read(), binary=True))' )
 echo "Transferred Bytes: $RLOG_TB"
 arr+=("- rclone.sync.transbytes.[$SOURCE.$DEST] $TIME $RLOG_TB")
 
-RLOG_ER=$(cat $LOGFILE | grep '^Errors:' | awk '{print $2}')
+RLOG_ER=$(cat $LOGFILE | grep '^Errors:' | tail -n1 | awk '{print $2}')
 echo "Errors:            $RLOG_ER"
 if [ -n "$RLOG_ER" ]; then
 	arr+=("- rclone.sync.errors.[$SOURCE.$DEST] $TIME $RLOG_ER")
 fi
 
-RLOG_CH=$(cat $LOGFILE | grep '^Checks:' | awk '{print $2}')
+RLOG_CH=$(cat $LOGFILE | grep '^Checks:' | tail -1 | awk '{print $2}')
 echo "Checks:            $RLOG_CH"
 arr+=("- rclone.sync.checks.[$SOURCE.$DEST] $TIME $RLOG_CH")
 
-RLOG_TF=$(cat $LOGFILE | grep '^Transferred:' | tail -n1  | awk '{print $2}')
+RLOG_TF=$(cat $LOGFILE | grep '^Transferred:' | tail -n1 | awk '{print $2}')
 echo "Transferred Files: $RLOG_TF"
 arr+=("- rclone.sync.transfiles.[$SOURCE.$DEST] $TIME $RLOG_TF")
 
-RLOG_ET=$(cat $LOGFILE | grep '^Elapsed time:' | awk '{print $3}')
+RLOG_ET=$(cat $LOGFILE | grep '^Elapsed time:' | tail -n1 | awk '{print $3}')
 echo "Elapsed Time:      $RLOG_ET"
 RLOG_ET_h=$(echo $RLOG_ET | cut -s -d "h" -f 1)
 #if [ -z "$RLOG_ET_h" ]; then RLOG_ET_h=0; fi
